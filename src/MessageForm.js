@@ -7,7 +7,7 @@ const MessageForm = () => {
     e.preventDefault();
 
     // Send the message to the backend
-    const response = await fetch('13.234.232.208:8080/api/messages/post', {
+    const response = await fetch('http://13.234.232.208:8080/api/messages/post', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
