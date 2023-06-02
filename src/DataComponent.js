@@ -1,33 +1,34 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useState } from 'react';
+import './Note.css';
 
 const DataComponent = () => {
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
-    useEffect(() => {
-        fetchData();
-    }, []);
+  const fetchData = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/messages/getAllMessages');
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
-    const fetchData = async () => {
-        try {
-            const response = await fetch('http://13.234.232.208:8080/api/messages/getAllMessages');
-            const data = await response.json();
-            setData(data);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    };
-
-    return (
-        <div>
-            <h2>Data:</h2>
-            <ul>
-                {data.map(item => (
-                    <li key={item.id}>{item.content}</li>
-                ))}
-            </ul>
-        </div>
-    );
+  return (
+    <div>
+      <button onClick={fetchData}>Update Messages</button>
+      <ul>
+        {data.map(item => (
+          <li key={item.id}>
+            <a href="#">
+              <h2>NOTE</h2>
+              <p>{item.content}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default DataComponent;

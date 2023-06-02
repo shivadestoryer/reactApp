@@ -7,9 +7,11 @@ function App() {
   return (
     <div className="App">
       
-      <h1>Post Message</h1>
+      <h1>Share your Thought</h1>
       <MessageForm />
       <ButtonComponent/>
+
+      
     </div>
   );
 }

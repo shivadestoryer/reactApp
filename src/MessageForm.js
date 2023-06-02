@@ -7,7 +7,7 @@ const MessageForm = () => {
     e.preventDefault();
 
     // Send the message to the backend
-    const response = await fetch('http://13.234.232.208:8080/api/messages/post', {
+    const response = await fetch('http://localhost:8080/api/messages/post', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -28,6 +28,7 @@ const MessageForm = () => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
+        rows="4" cols="50"
         value={content}
         onChange={(e) => setMessage(e.target.value)}
       />

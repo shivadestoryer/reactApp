@@ -11,7 +11,7 @@ const ButtonComponent = () => {
 
     return (
         <div>
-            <button onClick={handleClick}>Click Me</button>
+            <button onClick={handleClick}>Read Messages</button>
             {showComponent && <DataComponent />}
         </div>
     );
